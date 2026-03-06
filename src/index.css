@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  margin: 0;
+}
+
+.app {
+  max-width: 800px;
+  margin: auto;
+  padding: 3rem;
+}
+
+h1 {
+  color: #4338ca;
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-top: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
