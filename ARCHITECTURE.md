@@ -5,34 +5,50 @@
 - Vite
 - JavaScript
 - CSS
-- localStorage
-- Netlify
+- Supabase Authentication
+- Supabase PostgreSQL Database
+- Netlify (deployment)
 
-## Components
+## Application Structure
 
 ### App.jsx
-Main application component that manages state.
+Main router component that manages application routes including Login, Signup, and Dashboard pages.
 
-### InspirationForm.jsx
-Form that allows users to add new inspiration items.
+### Login.jsx
+Handles user authentication by allowing existing users to log in using Supabase Auth.
 
-### InspirationList.jsx
-Displays inspiration cards.
+### Signup.jsx
+Allows new users to create an account using Supabase authentication.
 
-### InspirationCard.jsx
-Individual inspiration item card.
+### Dashboard.jsx
+Main application page where users manage their moodboard items. This component handles:
+- fetching items from the database
+- creating new moodboard entries
+- editing existing entries
+- deleting entries
+- filtering/searching items
 
-## Data Model
+## Database Structure
 
-### Inspiration Item
-```js
+Table: `moodboard_items`
+
+Fields:
 {
-  id: string,
+  id: number,
   title: string,
-  imageUrl: string,
-  sourceLink: string,
-  notes: string,
-  projectName: string,
-  category: string,
-  createdAt: string
+  description: string,
+  image_url: string,
+  tags: string,
+  user_id: string
 }
+
+Each record is associated with a specific authenticated user through the `user_id` field.
+
+## Security
+
+Row Level Security (RLS) policies are enabled in Supabase so that users can only:
+
+- read their own moodboard items
+- insert new items tied to their user account
+- update their own items
+- delete their own items
