@@ -1,23 +1,23 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+
 function App() {
   return (
-    <main className="app">
-      <h1>Design Moodboard</h1>
+    <BrowserRouter>
+      <Routes>
 
-      <p>
-        A web app for UX/UI designers to save and organize design inspiration
-        for different projects.
-      </p>
+        <Route path="/" element={<Login />} />
 
-      <h2>Planned Features</h2>
+        <Route path="/signup" element={<Signup />} />
 
-      <ul>
-        <li>Add inspiration entries with title, category, project, and notes</li>
-        <li>View saved inspirations in a card layout</li>
-        <li>Edit inspiration entries</li>
-        <li>Delete inspirations</li>
-        <li>Filter inspirations by project or category</li>
-      </ul>
-    </main>
+        <Route path="/dashboard" element={<Dashboard />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
